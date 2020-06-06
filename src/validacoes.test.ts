@@ -130,4 +130,23 @@ describe("Valicações", () => {
       expect(proximaValidacao).not.toHaveBeenCalled();
     });
   });
+
+  describe("Validação de período na faculdade", () => {
+    it("deve chamar a proxima validação se a pessoa estiver a 2 periodos de terminar o curso", () => {
+      //given
+      const pessoa = {
+        carteiraOAB: false,
+        primeiraFase: false,
+        segundaFase: true,
+        notaPrimeiraFase: 5,
+        notaSegundaFase: 7,
+        periodo: 8,
+      };
+      const proximaValidacao = jest.fn();
+      // when
+      validaUltimosPeriodos(pessoa, proximaValidacao);
+      // then
+      expect(proximaValidacao).toHaveBeenCalled();
+    });
+  });
 });
