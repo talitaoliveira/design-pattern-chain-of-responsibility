@@ -2,6 +2,7 @@ import {
   validaPossuiACarteira,
   validaFezProvaDuasFases,
   validaNotaSeteAcima,
+  validaUltimosPeriodos,
 } from "./validacoes";
 
 describe("Valicações", () => {

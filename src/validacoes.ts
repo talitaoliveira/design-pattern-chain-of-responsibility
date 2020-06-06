@@ -29,3 +29,10 @@ export const validaNotaSeteAcima = (
     proximaValidacao();
   }
 };
+
+export const validaUltimosPeriodos = (
+  pessoaInscrita: PessoaInscrita,
+  proximaValidacao: Function
+) => {
+  proximaValidacao();
+};
