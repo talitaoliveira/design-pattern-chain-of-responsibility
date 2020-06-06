@@ -7,5 +7,5 @@ export const validaPossuiACarteira = (
   if (!pessoaInscrita.carteiraOAB) {
     proximaValidacao();
   }
-  return pessoaInscrita.carteiraOAB;
+  return false;
 };
