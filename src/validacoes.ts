@@ -13,7 +13,7 @@ export const validaFezProvaDuasFases = (
   pessoaInscrita: PessoaInscrita,
   proximaValidacao: Function
 ) => {
-  if (pessoaInscrita.segundaFase) {
+  if (pessoaInscrita.segundaFase && pessoaInscrita.primeiraFase) {
     proximaValidacao();
   }
 };
