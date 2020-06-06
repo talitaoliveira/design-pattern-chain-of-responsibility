@@ -149,5 +149,22 @@ describe("Valicações", () => {
       // then
       expect(proximaValidacao).toHaveBeenCalled();
     });
+
+    it("não deve chamar a proxima validação se faltar mais de 2 periodos de terminar o curso", () => {
+      //given
+      const pessoa = {
+        carteiraOAB: false,
+        primeiraFase: false,
+        segundaFase: true,
+        notaPrimeiraFase: 5,
+        notaSegundaFase: 7,
+        periodo: 6,
+      };
+      const proximaValidacao = jest.fn();
+      // when
+      validaUltimosPeriodos(pessoa, proximaValidacao);
+      // then
+      expect(proximaValidacao).not.toHaveBeenCalled();
+    });
   });
 });
