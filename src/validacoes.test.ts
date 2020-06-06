@@ -14,4 +14,21 @@ describe("Valicações", () => {
     // then
     expect(possuiCarteira).toBe(false);
   });
+
+  it("deve chamar a proxima validacao se a pessoa já possui carteirinha", () => {
+    // given
+    const pessoa = {
+      carteiraOAB: false,
+      notaPrimeiraFase: 7,
+      notaSegundaFase: 8,
+      periodo: 8,
+    };
+    const proximaValidacao = jest.fn();
+
+    // when
+    const possuiCarteira = validaPossuiACarteira(pessoa);
+
+    // then
+    expect(proximaValidacao).toHaveBeenCalled();
+  });
 });
