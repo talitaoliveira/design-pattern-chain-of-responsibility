@@ -16,10 +16,10 @@ describe("Valicações", () => {
     expect(possuiCarteira).toBe(false);
   });
 
-  it("deve chamar a proxima validacao se a pessoa já possui carteirinha", () => {
+  it("deve chamar a proxima validacao se a pessoa não possui carteirinha", () => {
     // given
     const pessoa = {
-      carteiraOAB: true,
+      carteiraOAB: false,
       notaPrimeiraFase: 7,
       notaSegundaFase: 8,
       periodo: 8,
