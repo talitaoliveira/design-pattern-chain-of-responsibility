@@ -7,7 +7,6 @@ export const validaPossuiACarteira = (
   if (!pessoaInscrita.carteiraOAB) {
     proximaValidacao();
   }
-  return false;
 };
 
 export const validaFezProvaDuasFases = (

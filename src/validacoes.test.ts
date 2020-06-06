@@ -2,22 +2,6 @@ import { validaPossuiACarteira, validaFezProvaDuasFases } from "./validacoes";
 
 describe("Valicações", () => {
   describe("Validação da carteirinha", () => {
-    it("deve validar se a pessoa já possui a carteirinha ou nao", () => {
-      // given
-      const pessoa = {
-        carteiraOAB: false,
-        primeiraFase: true,
-        segundaFase: true,
-        notaPrimeiraFase: 7,
-        notaSegundaFase: 8,
-        periodo: 8,
-      };
-      const proximaValidacao = jest.fn();
-      // when
-      const possuiCarteira = validaPossuiACarteira(pessoa, proximaValidacao);
-      // then
-      expect(possuiCarteira).toBe(false);
-    });
     it("deve chamar a proxima validacao se a pessoa não possui carteirinha", () => {
       // given
       const pessoa = {
@@ -35,6 +19,22 @@ describe("Valicações", () => {
 
       // then
       expect(proximaValidacao).toHaveBeenCalled();
+    });
+    it("não deve chamar a proxima validacao se a pessoa já possui carteirinha", () => {
+      // given
+      const pessoa = {
+        carteiraOAB: true,
+        primeiraFase: true,
+        segundaFase: true,
+        notaPrimeiraFase: 7,
+        notaSegundaFase: 8,
+        periodo: 8,
+      };
+      const proximaValidacao = jest.fn();
+      // when
+      validaPossuiACarteira(pessoa, proximaValidacao);
+      // then
+      expect(proximaValidacao).not.toHaveBeenCalled();
     });
   });
 
