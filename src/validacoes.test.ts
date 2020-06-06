@@ -1,3 +1,5 @@
+import { validaPossuiACarteira } from "./validacoes";
+
 describe("Valicações", () => {
   it("deve validar se a pessoa já possui a carteirinha ou nao", () => {
     // given
