@@ -34,5 +34,7 @@ export const validaUltimosPeriodos = (
   pessoaInscrita: PessoaInscrita,
   proximaValidacao: Function
 ) => {
-  proximaValidacao();
+  if (pessoaInscrita.periodo >= 8) {
+    proximaValidacao();
+  }
 };
