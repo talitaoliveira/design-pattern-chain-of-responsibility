@@ -9,8 +9,9 @@ describe("Valicações", () => {
       notaSegundaFase: 8,
       periodo: 8,
     };
+    const proximaValidacao = jest.fn();
     // when
-    const possuiCarteira = validaPossuiACarteira(pessoa);
+    const possuiCarteira = validaPossuiACarteira(pessoa, proximaValidacao);
     // then
     expect(possuiCarteira).toBe(false);
   });
@@ -18,7 +19,7 @@ describe("Valicações", () => {
   it("deve chamar a proxima validacao se a pessoa já possui carteirinha", () => {
     // given
     const pessoa = {
-      carteiraOAB: false,
+      carteiraOAB: true,
       notaPrimeiraFase: 7,
       notaSegundaFase: 8,
       periodo: 8,
@@ -26,7 +27,7 @@ describe("Valicações", () => {
     const proximaValidacao = jest.fn();
 
     // when
-    const possuiCarteira = validaPossuiACarteira(pessoa);
+    const possuiCarteira = validaPossuiACarteira(pessoa, proximaValidacao);
 
     // then
     expect(proximaValidacao).toHaveBeenCalled();
