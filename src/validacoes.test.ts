@@ -7,7 +7,7 @@ import {
 
 describe("Valicações", () => {
   describe("Validação da carteirinha", () => {
-    it("deve chamar a proxima validacao se a pessoa não possui carteirinha", () => {
+    it("deve chamar a proxima validação se a pessoa não possui carteirinha", () => {
       // given
       const pessoa = {
         carteiraOAB: false,
@@ -25,7 +25,7 @@ describe("Valicações", () => {
       // then
       expect(proximaValidacao).toHaveBeenCalled();
     });
-    it("não deve chamar a proxima validacao se a pessoa já possui carteirinha", () => {
+    it("não deve chamar a proxima validação se a pessoa já possui carteirinha", () => {
       // given
       const pessoa = {
         carteiraOAB: true,
