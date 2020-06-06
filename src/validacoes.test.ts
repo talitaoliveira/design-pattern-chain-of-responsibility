@@ -33,4 +33,21 @@ describe("Valicações", () => {
       expect(proximaValidacao).toHaveBeenCalled();
     });
   });
+
+  describe("Validação das duas fases da prova", () => {
+    it("deve chamar a proxima validação caso a pessoa tenha feito as duas fases da prova", () => {
+      //given
+      const pessoa = {
+        carteiraOAB: false,
+        notaPrimeiraFase: 7,
+        notaSegundaFase: 8,
+        periodo: 8,
+      };
+      const proximaValidacao = jest.fn();
+      // when
+      validaFezProvaDuasFases(pessoa, proximaValidacao);
+      // then
+      expect(proximaValidacao).toHaveBeenCalled();
+    });
+  });
 });
