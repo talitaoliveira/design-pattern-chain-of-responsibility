@@ -14,5 +14,7 @@ export const validaFezProvaDuasFases = (
   pessoaInscrita: PessoaInscrita,
   proximaValidacao: Function
 ) => {
-  proximaValidacao();
+  if (pessoaInscrita.segundaFase) {
+    proximaValidacao();
+  }
 };
