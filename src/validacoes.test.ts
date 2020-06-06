@@ -56,7 +56,7 @@ describe("Valicações", () => {
       expect(proximaValidacao).toHaveBeenCalled();
     });
 
-    it("não deve chamar a proxima validação caso a pessoa não tenha feito as duas fases da prova", () => {
+    it("não deve chamar a proxima validação caso a pessoa não tenha feito a segunda fase da prova", () => {
       //given
       const pessoa = {
         carteiraOAB: false,
