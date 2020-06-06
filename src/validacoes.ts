@@ -17,3 +17,10 @@ export const validaFezProvaDuasFases = (
     proximaValidacao();
   }
 };
+
+export const validaNotaSeteAcima = (
+  pessoaInscrita: PessoaInscrita,
+  proximaValidacao: Function
+) => {
+  proximaValidacao();
+};

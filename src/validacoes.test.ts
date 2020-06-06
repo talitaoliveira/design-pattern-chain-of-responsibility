@@ -1,4 +1,8 @@
-import { validaPossuiACarteira, validaFezProvaDuasFases } from "./validacoes";
+import {
+  validaPossuiACarteira,
+  validaFezProvaDuasFases,
+  validaNotaSeteAcima,
+} from "./validacoes";
 
 describe("Valicações", () => {
   describe("Validação da carteirinha", () => {
@@ -88,6 +92,25 @@ describe("Valicações", () => {
       validaFezProvaDuasFases(pessoa, proximaValidacao);
       // then
       expect(proximaValidacao).not.toHaveBeenCalled();
+    });
+  });
+
+  describe("Validação de notas acima de 7", () => {
+    it("deve chamar a proxima validação caso a pessoa tenha a nota das duas provas igual ou maior que 7 ", () => {
+      //given
+      const pessoa = {
+        carteiraOAB: false,
+        primeiraFase: false,
+        segundaFase: true,
+        notaPrimeiraFase: 7,
+        notaSegundaFase: 7,
+        periodo: 8,
+      };
+      const proximaValidacao = jest.fn();
+      // when
+      validaNotaSeteAcima(pessoa, proximaValidacao);
+      // then
+      expect(proximaValidacao).toHaveBeenCalled();
     });
   });
 });
