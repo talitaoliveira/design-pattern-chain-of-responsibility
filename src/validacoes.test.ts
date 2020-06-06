@@ -1,4 +1,4 @@
-import { validaPossuiACarteira } from "./validacoes";
+import { validaPossuiACarteira, validaFezProvaDuasFases } from "./validacoes";
 
 describe("Valicações", () => {
   describe("Validação da carteirinha", () => {

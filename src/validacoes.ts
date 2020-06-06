@@ -9,3 +9,10 @@ export const validaPossuiACarteira = (
   }
   return false;
 };
+
+export const validaFezProvaDuasFases = (
+  pessoaInscrita: PessoaInscrita,
+  proximaValidacao: Function
+) => {
+  proximaValidacao();
+};
