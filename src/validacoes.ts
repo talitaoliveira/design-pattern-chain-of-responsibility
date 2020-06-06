@@ -22,5 +22,10 @@ export const validaNotaSeteAcima = (
   pessoaInscrita: PessoaInscrita,
   proximaValidacao: Function
 ) => {
-  proximaValidacao();
+  if (
+    pessoaInscrita.notaPrimeiraFase >= 7 &&
+    pessoaInscrita.notaSegundaFase >= 7
+  ) {
+    proximaValidacao();
+  }
 };
