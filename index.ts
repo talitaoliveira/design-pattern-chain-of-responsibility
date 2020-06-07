@@ -39,8 +39,8 @@ pessoasInscritas.forEach((pessoaInscrita: PessoaInscrita) => {
       validaPossuiACarteira,
       validaFezProvaDuasFases,
       validaNotaSeteAcima,
-      validaUltimosPeriodos,
-      acaoEntregarCarteira
+      validaUltimosPeriodos
     )
+    .setAcoes(acaoEntregarCarteira)
     .process();
 });
