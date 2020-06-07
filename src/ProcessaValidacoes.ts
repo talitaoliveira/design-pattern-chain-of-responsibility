@@ -22,12 +22,14 @@ export default class ProcessaValidacoes {
   }
 
   process() {
-    this.validacoes = this.validacoes.map((validacao: Function, index) => {
+    let validacoesEAcoes = [...this.validacoes, ...this.acoes];
+
+    validacoesEAcoes = validacoesEAcoes.map((validacao: Function, index) => {
       return () => {
-        validacao(this.pessoaParaValidar, this.validacoes[index + 1]);
+        validacao(this.pessoaParaValidar, validacoesEAcoes[index + 1]);
       };
     });
 
-    this.validacoes[0]();
+    validacoesEAcoes[0]();
   }
 }
