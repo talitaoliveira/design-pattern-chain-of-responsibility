@@ -1,6 +1,7 @@
 import ProcessaValidacoes from "./ProcessaValidacoes";
 
 const pessoaInscrita = {
+  nome: "Fulano de Tal",
   carteiraOAB: true,
   primeiraFase: true,
   segundaFase: true,
@@ -26,16 +27,13 @@ describe("Processa validações", () => {
     const primeiraValidacao = jest
       .fn()
       .mockImplementation((pessoa, proximaValidacao: Function) => {
-        console.log("validacao 1");
         if (true) {
           proximaValidacao();
         }
       });
     const segundaValidacao = jest
       .fn()
-      .mockImplementation((pessoa, proximaValidacao: Function) => {
-        console.log("validacao 2");
-      });
+      .mockImplementation((pessoa, proximaValidacao: Function) => {});
 
     const processaValidacoes = new ProcessaValidacoes();
     // when
@@ -54,7 +52,6 @@ describe("Processa validações", () => {
     const primeiraValidacao = jest
       .fn()
       .mockImplementation((pessoa, proximaValidacao: Function) => {
-        console.log("validacao 1");
         if (true) {
           proximaValidacao();
         }
@@ -62,7 +59,6 @@ describe("Processa validações", () => {
     const segundaValidacao = jest
       .fn()
       .mockImplementation((pessoa, proximaValidacao: Function) => {
-        console.log("validacao 2");
         if (true) {
           proximaValidacao();
         }
@@ -70,9 +66,7 @@ describe("Processa validações", () => {
 
     const terceiraValidacao = jest
       .fn()
-      .mockImplementation((pessoa, proximaValidacao: Function) => {
-        console.log("validacao 3");
-      });
+      .mockImplementation((pessoa, proximaValidacao: Function) => {});
 
     const processaValidacoes = new ProcessaValidacoes();
     // when
@@ -93,7 +87,6 @@ describe("Processa validações", () => {
     const primeiraValidacao = jest
       .fn()
       .mockImplementation((pessoa, proximaValidacao: Function) => {
-        console.log("validacao 1");
         if (false) {
           proximaValidacao();
         }
@@ -101,9 +94,7 @@ describe("Processa validações", () => {
 
     const segundaValidacao = jest
       .fn()
-      .mockImplementation((pessoa, proximaValidacao: Function) => {
-        console.log("validacao 2");
-      });
+      .mockImplementation((pessoa, proximaValidacao: Function) => {});
 
     const processaValidacoes = new ProcessaValidacoes();
     // when

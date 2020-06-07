@@ -10,6 +10,7 @@ describe("Valicações", () => {
     it("deve chamar a proxima validação se a pessoa não possui carteirinha", () => {
       // given
       const pessoa = {
+        nome: "Alguma Pessoa",
         carteiraOAB: false,
         primeiraFase: true,
         segundaFase: true,
@@ -20,7 +21,7 @@ describe("Valicações", () => {
       const proximaValidacao = jest.fn();
 
       // when
-      const possuiCarteira = validaPossuiACarteira(pessoa, proximaValidacao);
+      validaPossuiACarteira(pessoa, proximaValidacao);
 
       // then
       expect(proximaValidacao).toHaveBeenCalled();
@@ -28,6 +29,7 @@ describe("Valicações", () => {
     it("não deve chamar a proxima validação se a pessoa já possui carteirinha", () => {
       // given
       const pessoa = {
+        nome: "Alguma Pessoa",
         carteiraOAB: true,
         primeiraFase: true,
         segundaFase: true,
@@ -47,6 +49,7 @@ describe("Valicações", () => {
     it("deve chamar a proxima validação caso a pessoa tenha feito as duas fases da prova", () => {
       //given
       const pessoa = {
+        nome: "Alguma Pessoa",
         carteiraOAB: false,
         primeiraFase: true,
         segundaFase: true,
@@ -64,6 +67,7 @@ describe("Valicações", () => {
     it("não deve chamar a proxima validação caso a pessoa não tenha feito a segunda fase da prova", () => {
       //given
       const pessoa = {
+        nome: "Alguma Pessoa",
         carteiraOAB: false,
         primeiraFase: true,
         segundaFase: false,
@@ -81,6 +85,7 @@ describe("Valicações", () => {
     it("não deve chamar a proxima validação caso a pessoa não tenha feito a primeira fase da prova", () => {
       //given
       const pessoa = {
+        nome: "Alguma Pessoa",
         carteiraOAB: false,
         primeiraFase: false,
         segundaFase: true,
@@ -100,6 +105,7 @@ describe("Valicações", () => {
     it("deve chamar a proxima validação caso a pessoa tenha a nota das duas provas igual ou maior que 7 ", () => {
       //given
       const pessoa = {
+        nome: "Alguma Pessoa",
         carteiraOAB: false,
         primeiraFase: false,
         segundaFase: true,
@@ -117,6 +123,7 @@ describe("Valicações", () => {
     it("não deve chamar a proxima validação caso a pessoa tenha alguma nota menor que 7 ", () => {
       //given
       const pessoa = {
+        nome: "Alguma Pessoa",
         carteiraOAB: false,
         primeiraFase: false,
         segundaFase: true,
@@ -136,6 +143,7 @@ describe("Valicações", () => {
     it("deve chamar a proxima validação se a pessoa estiver a 2 periodos de terminar o curso", () => {
       //given
       const pessoa = {
+        nome: "Alguma Pessoa",
         carteiraOAB: false,
         primeiraFase: false,
         segundaFase: true,
@@ -153,6 +161,7 @@ describe("Valicações", () => {
     it("não deve chamar a proxima validação se faltar mais de 2 periodos de terminar o curso", () => {
       //given
       const pessoa = {
+        nome: "Alguma Pessoa",
         carteiraOAB: false,
         primeiraFase: false,
         segundaFase: true,
