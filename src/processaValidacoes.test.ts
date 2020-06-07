@@ -15,9 +15,9 @@ describe("Processa validações", () => {
     // given
     const primeiraValidacao = jest.fn();
 
-    const processaValidacoes = new ProcessaValidacoes();
+    const processaValidacoes = new ProcessaValidacoes(pessoaInscrita);
     // when
-    processaValidacoes.process(pessoaInscrita, primeiraValidacao);
+    processaValidacoes.process(primeiraValidacao);
     // then
     expect(primeiraValidacao).toHaveBeenCalled();
   });
