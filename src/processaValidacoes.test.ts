@@ -24,8 +24,19 @@ describe("Processa validações", () => {
 
   it("deve passar por duas validações", () => {
     // given
-    const primeiraValidacao = jest.fn();
-    const segundaValidacao = jest.fn();
+    const primeiraValidacao = jest
+      .fn()
+      .mockImplementation((pessoa, proximaValidacao: Function) => {
+        console.log("validacao 1");
+        if (true) {
+          proximaValidacao();
+        }
+      });
+    const segundaValidacao = jest
+      .fn()
+      .mockImplementation((pessoa, proximaValidacao: Function) => {
+        console.log("validacao 2");
+      });
 
     const processaValidacoes = new ProcessaValidacoes();
     // when
@@ -41,9 +52,28 @@ describe("Processa validações", () => {
 
   it("deve passar por tres validações", () => {
     // given
-    const primeiraValidacao = jest.fn();
-    const segundaValidacao = jest.fn();
-    const terceiraValidacao = jest.fn();
+    const primeiraValidacao = jest
+      .fn()
+      .mockImplementation((pessoa, proximaValidacao: Function) => {
+        console.log("validacao 1");
+        if (true) {
+          proximaValidacao();
+        }
+      });
+    const segundaValidacao = jest
+      .fn()
+      .mockImplementation((pessoa, proximaValidacao: Function) => {
+        console.log("validacao 2");
+        if (true) {
+          proximaValidacao();
+        }
+      });
+
+    const terceiraValidacao = jest
+      .fn()
+      .mockImplementation((pessoa, proximaValidacao: Function) => {
+        console.log("validacao 3");
+      });
 
     const processaValidacoes = new ProcessaValidacoes();
     // when
