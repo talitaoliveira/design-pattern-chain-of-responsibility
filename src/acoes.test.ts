@@ -1,4 +1,4 @@
-import { acaoEntregarCarteira } from "./actions";
+import { acaoEntregarCarteira } from "./acoes";
 
 describe("Ações", () => {
   it("Deve retornar a mensagem 'Parabéns, tome aqui sua carteirinha da OAB!'", () => {
