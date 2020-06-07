@@ -31,15 +31,16 @@ const pessoasInscritas = [
   },
 ];
 
-const processaValidacoes = new ProcessaValidacoes();
 pessoasInscritas.forEach((pessoaInscrita: PessoaInscrita) => {
   console.log(` ===== Iniciando validações de ${pessoaInscrita.nome}: =====`);
-  processaValidacoes.process(
-    pessoaInscrita,
-    validaPossuiACarteira,
-    validaFezProvaDuasFases,
-    validaNotaSeteAcima,
-    validaUltimosPeriodos,
-    acaoEntregarCarteira
-  );
+  const processaValidacoes = new ProcessaValidacoes(pessoaInscrita);
+  processaValidacoes
+    .setValidacoes(
+      validaPossuiACarteira,
+      validaFezProvaDuasFases,
+      validaNotaSeteAcima,
+      validaUltimosPeriodos,
+      acaoEntregarCarteira
+    )
+    .process();
 });
