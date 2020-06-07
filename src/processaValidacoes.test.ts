@@ -115,7 +115,7 @@ describe("Processa validações", () => {
     const segundaValidacao = jest
       .fn()
       .mockImplementation((pessoa, proximaValidacao: Function) => {
-        if (false) {
+        if (true) {
           proximaValidacao();
         }
       });
