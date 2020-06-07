@@ -35,6 +35,7 @@ export const validaUltimosPeriodos = (
   proximaValidacao: Function
 ) => {
   if (pessoaInscrita.periodo >= 8) {
+    console.log("fim das validações");
     proximaValidacao();
   }
 };
