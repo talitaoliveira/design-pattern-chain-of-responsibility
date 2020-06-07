@@ -8,7 +8,7 @@ export const validaPossuiACarteira = (
     console.log(
       `[PASSOU]: ${pessoaInscrita.nome} passou na validação da carteirinha... indo para a proxima validação...`
     );
-    proximaValidacao();
+    return proximaValidacao();
   }
   console.log(
     `[NÃO PASSOU]: ${pessoaInscrita.nome} NÃO passou na validação da carteirinha... não vai para proxima validação`
@@ -23,7 +23,7 @@ export const validaFezProvaDuasFases = (
     console.log(
       `[PASSOU]: ${pessoaInscrita.nome} passou na validação das fases da prova... indo para a proxima validação...`
     );
-    proximaValidacao();
+    return proximaValidacao();
   }
   console.log(
     `[NÃO PASSOU]: ${pessoaInscrita.nome} NÃO passou na validação das fases da prova... não vai para proxima validação`
@@ -41,7 +41,7 @@ export const validaNotaSeteAcima = (
     console.log(
       `[PASSOU]: ${pessoaInscrita.nome} passou na validação das notas... indo para a proxima validação...`
     );
-    proximaValidacao();
+    return proximaValidacao();
   }
   console.log(
     `[NÃO PASSOU]: ${pessoaInscrita.nome} NÃO passou na validação das notas... não vai para proxima validação`
@@ -56,7 +56,7 @@ export const validaUltimosPeriodos = (
     console.log(
       `[PASSOU]: ${pessoaInscrita.nome} passou na validação das notas... Fim das validações, indo para ação...`
     );
-    proximaValidacao();
+    return proximaValidacao();
   }
   console.log(
     `[NÃO PASSOU]: ${pessoaInscrita.nome} NÃO passou na validação das notas... não vai para ação`
