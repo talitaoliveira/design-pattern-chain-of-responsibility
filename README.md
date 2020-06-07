@@ -1,6 +1,6 @@
 # Para rodar este projeto
 
-Versão do node em que foi feita: `v12.18.0` (talvez seja util essa informação..)
+Versão do node em que foi feita: `v12.18.0` (talvez seja util essa informação.. não sei.. 🤔)
 
 1. Instalar as dependencias:
 
