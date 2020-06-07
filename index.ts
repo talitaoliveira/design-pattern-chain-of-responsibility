@@ -12,6 +12,7 @@ import ProcessaValidacoes from "./src/ProcessaValidacoes";
 
 const pessoasInscritas = [
   {
+    nome: "Pessoa 1",
     carteiraOAB: false,
     primeiraFase: true,
     segundaFase: true,
@@ -20,6 +21,7 @@ const pessoasInscritas = [
     periodo: 8,
   },
   {
+    nome: "Pessoa 2",
     carteiraOAB: true,
     primeiraFase: true,
     segundaFase: true,
