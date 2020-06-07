@@ -101,4 +101,40 @@ describe("Processa validações", () => {
     expect(primeiraValidacao).toHaveBeenCalled();
     expect(segundaValidacao).not.toHaveBeenCalled();
   });
+
+  it("deve chamar a função de ação se passar em todas as validaçoes", () => {
+    // given
+    const primeiraValidacao = jest
+      .fn()
+      .mockImplementation((pessoa, proximaValidacao: Function) => {
+        if (true) {
+          proximaValidacao();
+        }
+      });
+
+    const segundaValidacao = jest
+      .fn()
+      .mockImplementation((pessoa, proximaValidacao: Function) => {
+        if (false) {
+          proximaValidacao();
+        }
+      });
+
+    const primeiraAcao = jest
+      .fn()
+      .mockImplementation((pessoa, proximaValidacao: Function) => {
+        console.log("chegou na ação");
+      });
+
+    const processaValidacoes = new ProcessaValidacoes(pessoaInscrita);
+    // when
+    processaValidacoes
+      .setValidacoes(primeiraValidacao, segundaValidacao)
+      .setAcoes(primeiraAcao)
+      .process();
+    // then
+    expect(primeiraValidacao).toHaveBeenCalled();
+    expect(segundaValidacao).toHaveBeenCalled();
+    expect(primeiraAcao).toHaveBeenCalled();
+  });
 });
