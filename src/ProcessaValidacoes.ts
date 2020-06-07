@@ -2,18 +2,25 @@ import { PessoaInscrita } from "./types";
 
 export default class ProcessaValidacoes {
   pessoaParaValidar: PessoaInscrita;
+  validacoes: Array<Function>;
 
   constructor(pessoaParaValidar: PessoaInscrita) {
     this.pessoaParaValidar = pessoaParaValidar;
+    this.validacoes = [];
   }
 
-  process(...validacoes: Array<Function>) {
-    validacoes = validacoes.map((validacao: Function, index) => {
+  setValidacoes(...validacoes: Array<Function>) {
+    this.validacoes = validacoes;
+    return this;
+  }
+
+  process() {
+    this.validacoes = this.validacoes.map((validacao: Function, index) => {
       return () => {
-        validacao(this.pessoaParaValidar, validacoes[index + 1]);
+        validacao(this.pessoaParaValidar, this.validacoes[index + 1]);
       };
     });
 
-    validacoes[0]();
+    this.validacoes[0]();
   }
 }
