@@ -1,3 +1,4 @@
+import { PessoaInscrita } from "./types";
 import ProcessaValidacoes from "./ProcessaValidacoes";
 
 const pessoaInscrita = {
@@ -8,7 +9,7 @@ const pessoaInscrita = {
   notaPrimeiraFase: 7,
   notaSegundaFase: 8,
   periodo: 8,
-};
+} as PessoaInscrita;
 
 describe("Processa validações", () => {
   it("deve passar pela primeira validação", () => {
@@ -35,13 +36,9 @@ describe("Processa validações", () => {
       .fn()
       .mockImplementation((pessoa, proximaValidacao: Function) => {});
 
-    const processaValidacoes = new ProcessaValidacoes();
+    const processaValidacoes = new ProcessaValidacoes(pessoaInscrita);
     // when
-    processaValidacoes.process(
-      pessoaInscrita,
-      primeiraValidacao,
-      segundaValidacao
-    );
+    processaValidacoes.process(primeiraValidacao, segundaValidacao);
     // then
     expect(primeiraValidacao).toHaveBeenCalled();
     expect(segundaValidacao).toHaveBeenCalled();
@@ -68,10 +65,9 @@ describe("Processa validações", () => {
       .fn()
       .mockImplementation((pessoa, proximaValidacao: Function) => {});
 
-    const processaValidacoes = new ProcessaValidacoes();
+    const processaValidacoes = new ProcessaValidacoes(pessoaInscrita);
     // when
     processaValidacoes.process(
-      pessoaInscrita,
       primeiraValidacao,
       segundaValidacao,
       terceiraValidacao
@@ -96,13 +92,9 @@ describe("Processa validações", () => {
       .fn()
       .mockImplementation((pessoa, proximaValidacao: Function) => {});
 
-    const processaValidacoes = new ProcessaValidacoes();
+    const processaValidacoes = new ProcessaValidacoes(pessoaInscrita);
     // when
-    processaValidacoes.process(
-      pessoaInscrita,
-      primeiraValidacao,
-      segundaValidacao
-    );
+    processaValidacoes.process(primeiraValidacao, segundaValidacao);
     // then
     expect(primeiraValidacao).toHaveBeenCalled();
     expect(segundaValidacao).not.toHaveBeenCalled();
