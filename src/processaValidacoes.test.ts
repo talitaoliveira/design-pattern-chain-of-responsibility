@@ -43,4 +43,17 @@ describe("Processa validações", () => {
     expect(segundaValidacao).toHaveBeenCalled();
     expect(terceiraValidacao).toHaveBeenCalled();
   });
+
+  it("não deve passar para segunda validação se a primeira não for válida", () => {
+    // given
+    const primeiraValidacao = jest.fn();
+    const segundaValidacao = jest.fn();
+
+    const processaValidacoes = new ProcessaValidacoes();
+    // when
+    processaValidacoes.process(primeiraValidacao, segundaValidacao);
+    // then
+    expect(primeiraValidacao).toHaveBeenCalled();
+    expect(segundaValidacao).not.toHaveBeenCalled();
+  });
 });
