@@ -1,5 +1,7 @@
+import { PessoaInscrita } from "./types";
+
 export default class ProcessaValidacoes {
-  process(...validacoes: Array<Function>) {
+  process(pessoaInscrita: PessoaInscrita, ...validacoes: Array<Function>) {
     validacoes.forEach((validacao: Function) => {
       validacao();
     });

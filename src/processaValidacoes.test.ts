@@ -1,5 +1,14 @@
 import ProcessaValidacoes from "./ProcessaValidacoes";
 
+const pessoaInscrita = {
+  carteiraOAB: true,
+  primeiraFase: true,
+  segundaFase: true,
+  notaPrimeiraFase: 7,
+  notaSegundaFase: 8,
+  periodo: 8,
+};
+
 describe("Processa validações", () => {
   it("deve passar pela primeira validação", () => {
     // given
@@ -7,7 +16,7 @@ describe("Processa validações", () => {
 
     const processaValidacoes = new ProcessaValidacoes();
     // when
-    processaValidacoes.process(primeiraValidacao);
+    processaValidacoes.process(pessoaInscrita, primeiraValidacao);
     // then
     expect(primeiraValidacao).toHaveBeenCalled();
   });
@@ -19,7 +28,11 @@ describe("Processa validações", () => {
 
     const processaValidacoes = new ProcessaValidacoes();
     // when
-    processaValidacoes.process(primeiraValidacao, segundaValidacao);
+    processaValidacoes.process(
+      pessoaInscrita,
+      primeiraValidacao,
+      segundaValidacao
+    );
     // then
     expect(primeiraValidacao).toHaveBeenCalled();
     expect(segundaValidacao).toHaveBeenCalled();
@@ -34,6 +47,7 @@ describe("Processa validações", () => {
     const processaValidacoes = new ProcessaValidacoes();
     // when
     processaValidacoes.process(
+      pessoaInscrita,
       primeiraValidacao,
       segundaValidacao,
       terceiraValidacao
@@ -46,12 +60,11 @@ describe("Processa validações", () => {
 
   it("não deve passar para segunda validação se a primeira não for válida", () => {
     // given
-    const pessoa = false;
     const primeiraValidacao = jest
       .fn()
       .mockImplementation((pessoa, proximaValidacao: Function) => {
         console.log("validacao 1");
-        if (pessoa === true) {
+        if (pessoa.carteiraOAB === false) {
           proximaValidacao();
         }
       });
@@ -63,7 +76,11 @@ describe("Processa validações", () => {
 
     const processaValidacoes = new ProcessaValidacoes();
     // when
-    processaValidacoes.process(primeiraValidacao, segundaValidacao);
+    processaValidacoes.process(
+      pessoaInscrita,
+      primeiraValidacao,
+      segundaValidacao
+    );
     // then
     expect(primeiraValidacao).toHaveBeenCalled();
     expect(segundaValidacao).not.toHaveBeenCalled();
