@@ -1,3 +1,5 @@
+import ProcessaValidacoes from "./ProcessaValidacoes";
+
 describe("Processa validações", () => {
   it("deve passar pela primeira validação", () => {
     // given
