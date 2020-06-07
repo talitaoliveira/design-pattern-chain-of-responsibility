@@ -5,7 +5,7 @@ describe("Processa validações", () => {
 
     const processaValidacoes = new ProcessaValidacoes();
     // when
-    processaValidacoes.setValidacoes(primeiraValidacao);
+    processaValidacoes.process(primeiraValidacao);
     // then
     expect(primeiraValidacao).toHaveBeenCalled();
   });
