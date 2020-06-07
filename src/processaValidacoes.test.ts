@@ -46,8 +46,20 @@ describe("Processa validações", () => {
 
   it("não deve passar para segunda validação se a primeira não for válida", () => {
     // given
-    const primeiraValidacao = jest.fn();
-    const segundaValidacao = jest.fn();
+    const pessoa = false;
+    const primeiraValidacao = jest
+      .fn()
+      .mockImplementation((pessoa, proximaValidacao: Function) => {
+        console.log("validacao 1");
+        if (pessoa === true) {
+          proximaValidacao();
+        }
+      });
+    const segundaValidacao = jest
+      .fn()
+      .mockImplementation((pessoa, proximaValidacao: Function) => {
+        console.log("validacao 2");
+      });
 
     const processaValidacoes = new ProcessaValidacoes();
     // when
