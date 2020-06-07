@@ -4,11 +4,25 @@ describe("Processa validações", () => {
   it("deve passar pela primeira validação", () => {
     // given
     const primeiraValidacao = jest.fn();
+    const segundaValidacao = jest.fn();
 
     const processaValidacoes = new ProcessaValidacoes();
     // when
-    processaValidacoes.process(primeiraValidacao);
+    processaValidacoes.process(primeiraValidacao, segundaValidacao);
     // then
     expect(primeiraValidacao).toHaveBeenCalled();
+  });
+
+  it("deve passar por duas validações", () => {
+    // given
+    const primeiraValidacao = jest.fn();
+    const segundaValidacao = jest.fn();
+
+    const processaValidacoes = new ProcessaValidacoes();
+    // when
+    processaValidacoes.process(primeiraValidacao, segundaValidacao);
+    // then
+    expect(primeiraValidacao).toHaveBeenCalled();
+    expect(segundaValidacao).toHaveBeenCalled();
   });
 });
