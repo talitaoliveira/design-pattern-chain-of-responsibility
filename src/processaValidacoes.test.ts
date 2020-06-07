@@ -25,4 +25,23 @@ describe("Processa validações", () => {
     expect(primeiraValidacao).toHaveBeenCalled();
     expect(segundaValidacao).toHaveBeenCalled();
   });
+
+  it("deve passar por tres validações", () => {
+    // given
+    const primeiraValidacao = jest.fn();
+    const segundaValidacao = jest.fn();
+    const terceiraValidacao = jest.fn();
+
+    const processaValidacoes = new ProcessaValidacoes();
+    // when
+    processaValidacoes.process(
+      primeiraValidacao,
+      segundaValidacao,
+      terceiraValidacao
+    );
+    // then
+    expect(primeiraValidacao).toHaveBeenCalled();
+    expect(segundaValidacao).toHaveBeenCalled();
+    expect(terceiraValidacao).toHaveBeenCalled();
+  });
 });
