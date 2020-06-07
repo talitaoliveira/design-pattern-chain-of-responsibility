@@ -1,9 +1,42 @@
-/**
-Criterios de aceitacao
-- Não ter a carteirinha da OAB
-- Ter feito as duas fases da prova
-- Nota acima 7 (sei la)
-- Estar a 2 períodos de terminar o curso (total: 10 periodos)
- */
+import { PessoaInscrita } from "./src/types";
+import {
+  validaPossuiACarteira,
+  validaFezProvaDuasFases,
+  validaNotaSeteAcima,
+  validaUltimosPeriodos,
+} from "./src/validacoes";
 
-console.log("ola");
+import { acaoEntregarCarteira } from "./src/acoes";
+
+import ProcessaValidacoes from "./src/ProcessaValidacoes";
+
+const pessoasInscritas = [
+  {
+    carteiraOAB: false,
+    primeiraFase: true,
+    segundaFase: true,
+    notaPrimeiraFase: 7,
+    notaSegundaFase: 8,
+    periodo: 8,
+  },
+  {
+    carteiraOAB: true,
+    primeiraFase: true,
+    segundaFase: true,
+    notaPrimeiraFase: 10,
+    notaSegundaFase: 9,
+    periodo: 8,
+  },
+];
+
+const processaValidacoes = new ProcessaValidacoes();
+pessoasInscritas.forEach((pessoaInscrita: PessoaInscrita) => {
+  processaValidacoes.process(
+    pessoaInscrita,
+    validaPossuiACarteira,
+    validaFezProvaDuasFases,
+    validaNotaSeteAcima,
+    validaUltimosPeriodos,
+    acaoEntregarCarteira
+  );
+});
