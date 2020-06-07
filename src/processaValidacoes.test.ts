@@ -1,3 +1,4 @@
+import { PessoaInscrita } from "./types";
 import ProcessaValidacoes from "./ProcessaValidacoes";
 
 const pessoaInscrita = {
@@ -64,10 +65,11 @@ describe("Processa validações", () => {
       .fn()
       .mockImplementation((pessoa, proximaValidacao: Function) => {
         console.log("validacao 1");
-        if (pessoa.carteiraOAB === false) {
+        if (false) {
           proximaValidacao();
         }
       });
+
     const segundaValidacao = jest
       .fn()
       .mockImplementation((pessoa, proximaValidacao: Function) => {
