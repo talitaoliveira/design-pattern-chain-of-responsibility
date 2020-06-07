@@ -1,4 +1,3 @@
-import { PessoaInscrita } from "./types";
 import ProcessaValidacoes from "./ProcessaValidacoes";
 
 const pessoaInscrita = {
