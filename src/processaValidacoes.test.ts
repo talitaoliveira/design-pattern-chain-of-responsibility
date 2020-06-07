@@ -5,10 +5,15 @@ describe("Processa validações", () => {
     // given
     const primeiraValidacao = jest.fn();
     const segundaValidacao = jest.fn();
+    const terceiraValidacao = jest.fn();
 
     const processaValidacoes = new ProcessaValidacoes();
     // when
-    processaValidacoes.process(primeiraValidacao, segundaValidacao);
+    processaValidacoes.process(
+      primeiraValidacao,
+      segundaValidacao,
+      terceiraValidacao
+    );
     // then
     expect(primeiraValidacao).toHaveBeenCalled();
   });
@@ -17,10 +22,15 @@ describe("Processa validações", () => {
     // given
     const primeiraValidacao = jest.fn();
     const segundaValidacao = jest.fn();
+    const terceiraValidacao = jest.fn();
 
     const processaValidacoes = new ProcessaValidacoes();
     // when
-    processaValidacoes.process(primeiraValidacao, segundaValidacao);
+    processaValidacoes.process(
+      primeiraValidacao,
+      segundaValidacao,
+      terceiraValidacao
+    );
     // then
     expect(primeiraValidacao).toHaveBeenCalled();
     expect(segundaValidacao).toHaveBeenCalled();
