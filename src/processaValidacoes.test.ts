@@ -12,7 +12,7 @@ const pessoaInscrita = {
 } as PessoaInscrita;
 
 describe("Processa validações", () => {
-  it.only("deve passar pela primeira validação", () => {
+  it("deve passar pela primeira validação", () => {
     // given
     const primeiraValidacao = jest.fn();
 
@@ -23,80 +23,82 @@ describe("Processa validações", () => {
     expect(primeiraValidacao).toHaveBeenCalled();
   });
 
-  //   it("deve passar por duas validações", () => {
-  //     // given
-  //     const primeiraValidacao = jest
-  //       .fn()
-  //       .mockImplementation((pessoa, proximaValidacao: Function) => {
-  //         if (true) {
-  //           proximaValidacao();
-  //         }
-  //       });
-  //     const segundaValidacao = jest
-  //       .fn()
-  //       .mockImplementation((pessoa, proximaValidacao: Function) => {});
+  it("deve passar por duas validações", () => {
+    // given
+    const primeiraValidacao = jest
+      .fn()
+      .mockImplementation((pessoa, proximaValidacao: Function) => {
+        if (true) {
+          proximaValidacao();
+        }
+      });
+    const segundaValidacao = jest
+      .fn()
+      .mockImplementation((pessoa, proximaValidacao: Function) => {});
 
-  //     const processaValidacoes = new ProcessaValidacoes(pessoaInscrita);
-  //     // when
-  //     processaValidacoes.process(primeiraValidacao, segundaValidacao);
-  //     // then
-  //     expect(primeiraValidacao).toHaveBeenCalled();
-  //     expect(segundaValidacao).toHaveBeenCalled();
-  //   });
+    const processaValidacoes = new ProcessaValidacoes(pessoaInscrita);
+    // when
+    processaValidacoes
+      .setValidacoes(primeiraValidacao, segundaValidacao)
+      .process();
+    // then
+    expect(primeiraValidacao).toHaveBeenCalled();
+    expect(segundaValidacao).toHaveBeenCalled();
+  });
 
-  //   it("deve passar por tres validações", () => {
-  //     // given
-  //     const primeiraValidacao = jest
-  //       .fn()
-  //       .mockImplementation((pessoa, proximaValidacao: Function) => {
-  //         if (true) {
-  //           proximaValidacao();
-  //         }
-  //       });
-  //     const segundaValidacao = jest
-  //       .fn()
-  //       .mockImplementation((pessoa, proximaValidacao: Function) => {
-  //         if (true) {
-  //           proximaValidacao();
-  //         }
-  //       });
+  it("deve passar por tres validações", () => {
+    // given
+    const primeiraValidacao = jest
+      .fn()
+      .mockImplementation((pessoa, proximaValidacao: Function) => {
+        if (true) {
+          proximaValidacao();
+        }
+      });
+    const segundaValidacao = jest
+      .fn()
+      .mockImplementation((pessoa, proximaValidacao: Function) => {
+        if (true) {
+          proximaValidacao();
+        }
+      });
 
-  //     const terceiraValidacao = jest
-  //       .fn()
-  //       .mockImplementation((pessoa, proximaValidacao: Function) => {});
+    const terceiraValidacao = jest
+      .fn()
+      .mockImplementation((pessoa, proximaValidacao: Function) => {});
 
-  //     const processaValidacoes = new ProcessaValidacoes(pessoaInscrita);
-  //     // when
-  //     processaValidacoes.process(
-  //       primeiraValidacao,
-  //       segundaValidacao,
-  //       terceiraValidacao
-  //     );
-  //     // then
-  //     expect(primeiraValidacao).toHaveBeenCalled();
-  //     expect(segundaValidacao).toHaveBeenCalled();
-  //     expect(terceiraValidacao).toHaveBeenCalled();
-  //   });
+    const processaValidacoes = new ProcessaValidacoes(pessoaInscrita);
+    // when
+    processaValidacoes
+      .setValidacoes(primeiraValidacao, segundaValidacao, terceiraValidacao)
+      .process();
+    // then
+    expect(primeiraValidacao).toHaveBeenCalled();
+    expect(segundaValidacao).toHaveBeenCalled();
+    expect(terceiraValidacao).toHaveBeenCalled();
+  });
 
-  //   it("não deve passar para segunda validação se a primeira não for válida", () => {
-  //     // given
-  //     const primeiraValidacao = jest
-  //       .fn()
-  //       .mockImplementation((pessoa, proximaValidacao: Function) => {
-  //         if (false) {
-  //           proximaValidacao();
-  //         }
-  //       });
+  it("não deve passar para segunda validação se a primeira não for válida", () => {
+    // given
+    const primeiraValidacao = jest
+      .fn()
+      .mockImplementation((pessoa, proximaValidacao: Function) => {
+        if (false) {
+          proximaValidacao();
+        }
+      });
 
-  //     const segundaValidacao = jest
-  //       .fn()
-  //       .mockImplementation((pessoa, proximaValidacao: Function) => {});
+    const segundaValidacao = jest
+      .fn()
+      .mockImplementation((pessoa, proximaValidacao: Function) => {});
 
-  //     const processaValidacoes = new ProcessaValidacoes(pessoaInscrita);
-  //     // when
-  //     processaValidacoes.process(primeiraValidacao, segundaValidacao);
-  //     // then
-  //     expect(primeiraValidacao).toHaveBeenCalled();
-  //     expect(segundaValidacao).not.toHaveBeenCalled();
-  //   });
+    const processaValidacoes = new ProcessaValidacoes(pessoaInscrita);
+    // when
+    processaValidacoes
+      .setValidacoes(primeiraValidacao, segundaValidacao)
+      .process();
+    // then
+    expect(primeiraValidacao).toHaveBeenCalled();
+    expect(segundaValidacao).not.toHaveBeenCalled();
+  });
 });
