@@ -22,10 +22,10 @@ const pessoasInscritas = [
   },
   {
     nome: "Pessoa 2",
-    carteiraOAB: true,
+    carteiraOAB: false,
     primeiraFase: true,
     segundaFase: true,
-    notaPrimeiraFase: 10,
+    notaPrimeiraFase: 6,
     notaSegundaFase: 9,
     periodo: 8,
   },
@@ -33,6 +33,7 @@ const pessoasInscritas = [
 
 const processaValidacoes = new ProcessaValidacoes();
 pessoasInscritas.forEach((pessoaInscrita: PessoaInscrita) => {
+  console.log(` ===== Iniciando validações de ${pessoaInscrita.nome}: =====`);
   processaValidacoes.process(
     pessoaInscrita,
     validaPossuiACarteira,
