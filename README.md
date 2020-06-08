@@ -1,3 +1,6 @@
+Este projeto foi desenvolvido como material para o post:
+http://talitaoliveira.netlify.com/chain-of-responsibility-em-javascript-1/
+
 # Para rodar este projeto
 
 Versão do node em que foi feita: `v12.18.0` (talvez seja util essa informação.. não sei.. 🤔)
