@@ -11,7 +11,7 @@ describe("Valicações", () => {
       // given
       const pessoa = {
         nome: "Alguma Pessoa",
-        carteiraOAB: true,
+        carteiraOAB: false,
         primeiraFase: true,
         segundaFase: true,
         notaPrimeiraFase: 7,
