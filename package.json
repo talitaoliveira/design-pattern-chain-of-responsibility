@@ -6,7 +6,8 @@
   "scripts": {
     "compile": "tsc",
     "start": "tsc && node ./dist/index.js",
-    "test": "jest --watch --silent"
+    "test": "jest --silent",
+    "test:watch": "jest --watch --silent"
   },
   "author": "",
   "license": "ISC",
